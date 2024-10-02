@@ -1,13 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
-import ChatBot from "../chatbot/Chatbot"; // Adjust the import path accordingly
 import "./Navbar.css";
 
 export default function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
-  const [showChatBot, setShowChatBot] = useState(false); // State to control ChatBot visibility
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
@@ -23,6 +21,19 @@ export default function Navbar() {
     };
   }, []);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
   const handleLogout = async () => {
@@ -35,10 +46,6 @@ export default function Navbar() {
     }
   };
 
-  const toggleChatBot = () => {
-    setShowChatBot((prev) => !prev); // Toggle ChatBot visibility
-  };
-
   return (
     <nav className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
@@ -49,9 +56,7 @@ export default function Navbar() {
           </Link>
         </div>
         <div className="links">
-          <span onClick={toggleChatBot} className="chatbot-btn" style={{ cursor: "pointer" }}>
-            Chatbot
-          </span>
+          <span>Chatbot</span>
           <span>English</span>
           {currentUser ? (
             <div className="user" ref={menuRef}>
@@ -100,8 +105,6 @@ export default function Navbar() {
           <Link to="/">Lifestyle</Link>
         </div>
       )}
-      {/* Render ChatBot */}
-      {showChatBot && <ChatBot />}
     </nav>
   );
 }
