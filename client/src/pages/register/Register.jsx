@@ -68,60 +68,76 @@ function Register() {
     <div className="register">
       <form onSubmit={handleSubmit}>
         <div className="left">
-          <h1>Create a new account</h1>
-          <label htmlFor="">Username</label>
+          <h1>Create a New Account</h1>
+          <label htmlFor="username">Username</label>
           <input
             name="username"
             type="text"
             placeholder="johndoe"
             onChange={handleChange}
           />
-          <label htmlFor="">Email</label>
+
+          <label htmlFor="email">Email</label>
           <input
             name="email"
             type="email"
-            placeholder="email"
+            placeholder="you@example.com"
             onChange={handleChange}
           />
-          <label htmlFor="">Password</label>
-          <input name="password" type="password" onChange={handleChange} />
-          <label htmlFor="">Profile Picture</label>
-          <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-          <label htmlFor="">Country</label>
+
+          <label htmlFor="password">Password</label>
+          <input
+            name="password"
+            type="password"
+            placeholder="••••••••"
+            onChange={handleChange}
+          />
+
+          <label htmlFor="file">Profile Picture</label>
+          <input
+            type="file"
+            accept="image/jpeg, image/png"
+            onChange={(e) => setFile(e.target.files[0])}
+          />
+
+          <label htmlFor="country">Country</label>
           <input
             name="country"
             type="text"
             placeholder="USA"
             onChange={handleChange}
           />
+
           {error && <p className="error">{error}</p>}
           <button type="submit" disabled={loading}>
             {loading ? "Registering..." : "Register"}
           </button>
         </div>
+
         <div className="right">
-          <h1>I want to become a seller</h1>
+          <h1>Become a Seller</h1>
           <div className="toggle">
-            <label htmlFor="">Activate the seller account</label>
+            <label htmlFor="isSeller">Activate Seller Account</label>
             <label className="switch">
               <input type="checkbox" onChange={handleSeller} />
               <span className="slider round"></span>
             </label>
           </div>
-          <label htmlFor="">Phone Number</label>
+
+          <label htmlFor="phone">Phone Number</label>
           <input
             name="phone"
             type="text"
             placeholder="+1 234 567 89"
             onChange={handleChange}
           />
-          <label htmlFor="">Description</label>
+
+          <label htmlFor="desc">Description</label>
           <textarea
-            placeholder="A short description of yourself"
             name="desc"
-            id=""
+            placeholder="A short description of yourself"
             cols="30"
-            rows="10"
+            rows="5"
             onChange={handleChange}
           ></textarea>
         </div>

@@ -1,59 +1,70 @@
 .myGigs {
-    display: flex;
-    justify-content: center;
-    color: #555;
-  }
-  
-  .myGigs .container {
-    width: 1400px;
-    padding: 50px 0px;
-  }
-  
-  .myGigs .container .title {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .myGigs .container .title button {
-    background-color: #1dbf73;
-    color: white;
-    font-weight: 500;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  .myGigs .container table {
-    width: 100%;
-  }
-  
-  .myGigs .container table tr {
-    height: 50px;
-  }
-  
-  .myGigs .container table th {
-    text-align: left;
-  }
-  
-  /* .myGigs .container table td {
-  }
-   */
-  .myGigs .container table td sup {
-    font-size: 12px;
-  }
-  
-  .myGigs .container table td .image {
-    width: 50px;
-    height: 25px;
-    object-fit: cover;
-  }
-  
-  .myGigs .container table td .delete {
-    width: 20px;
-    cursor: pointer;
-  }
-  
-  .myGigs .container table tr:nth-child(even) {
-    background-color: #1dbf730f;
-  }
-  
+  display: flex;
+  justify-content: center;
+  color: #555;
+}
+
+.myGigs .container {
+  max-width: 1400px;
+  width: 100%; /* Responsive container */
+  padding: 50px 20px; /* Add horizontal padding */
+}
+
+.myGigs .container .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Center align the title vertically */
+  margin-bottom: 20px; /* Add margin below the title */
+}
+
+.myGigs .container .title button {
+  background-color: #1dbf73;
+  color: white;
+  font-weight: 500;
+  border: none;
+  padding: 10px 15px; /* Add horizontal padding */
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; /* Transition effect */
+}
+
+.myGigs .container .title button:hover {
+  background-color: #17a363; /* Darker green on hover */
+}
+
+.myGigs .container table {
+  width: 100%;
+  border-collapse: collapse; /* Remove space between cells */
+  margin-top: 20px; /* Space above the table */
+}
+
+.myGigs .container table th,
+.myGigs .container table td {
+  padding: 15px 10px; /* Add padding for table cells */
+  text-align: left; /* Left align text */
+  border: 1px solid #ddd; /* Light border for cells */
+}
+
+.myGigs .container table th {
+  background-color: #f4f4f4; /* Light background for header */
+  font-weight: bold; /* Bold text */
+}
+
+.myGigs .container table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray for alternate rows */
+}
+
+.myGigs .container table tr:hover {
+  background-color: #f1f1f1; /* Highlight on hover */
+}
+
+.myGigs .container table .image {
+  width: 50px;
+  height: 50px; /* Increased height for better visibility */
+  object-fit: cover;
+  border-radius: 5px; /* Rounded corners */
+}
+
+.myGigs .container table .delete {
+  width: 25px;
+  cursor: pointer;
+}

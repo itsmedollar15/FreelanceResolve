@@ -1,12 +1,60 @@
+/* Slide.css */
 .slide {
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  align-items: center; /* Center content vertically */
+  padding: 60px 0; /* Adjusted padding for better spacing */
+  background-color: #1f1f1f; /* Dark background color similar to navbar */
+  position: relative; /* Allows for absolute positioning of container */
   z-index: 100;
-  background-color: red;
 }
 
 .slide .container {
-  width: 100%; /* Adjust width as needed */
-  overflow: hidden; /* Hide overflowing content */
+  width: 100%; /* Full width of the parent */
+  max-width: 1200px; /* Max width for larger screens */
+  padding: 0 20px; /* Horizontal padding for responsiveness */
+  overflow: hidden; /* Prevent vertical scrolling */
+}
+
+.marquee {
+  white-space: nowrap; /* Prevent line breaks */
+  font-size: 1.5rem; /* Adjust font size for readability */
+  color: #ffffff; /* Text color */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Subtle text shadow for contrast */
+  display: flex; /* Make marquee a flex container */
+  align-items: center; /* Center images vertically */
+  gap: 30px; /* Add space between items */
+}
+
+.marquee img {
+  width: 200px; /* Set a fixed width for uniformity */
+  height: 100px; /* Reduced height to prevent vertical scrolling */
+  object-fit: cover; /* Ensure images fill their containers */
+  margin: 0 15px; /* Add left and right margin to images */
+}
+
+/* Remove left margin from the first image */
+.marquee img:first-child {
+  margin-left: 15px; /* Margin for the first image */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slide {
+    padding: 40px 0; /* Adjust padding for smaller screens */
+  }
+
+  .slide .container {
+    padding: 0 10px; /* Adjust horizontal padding for smaller screens */
+  }
+
+  .marquee {
+    font-size: 1.2rem; /* Smaller font size on mobile */
+  }
+
+  .marquee img {
+    width: 100px; /* Set a smaller fixed width for mobile */
+    height: 100px; /* Set a smaller fixed height for mobile */
+    margin: 0 10px; /* Adjust margin on mobile */
+  }
 }

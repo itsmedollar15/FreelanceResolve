@@ -7,7 +7,9 @@ const Slide = ({ children, speed = 50 }) => {
     <div className="slide">
       <div className="container">
         <Marquee speed={speed} pauseOnHover>
-          {children}
+          <div className="marquee">
+            {children}
+          </div>
         </Marquee>
       </div>
     </div>

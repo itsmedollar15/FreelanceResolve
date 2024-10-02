@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./Navbar.css";
 import newRequest from "../../utils/newRequest";
+import "./Navbar.css";
 
-function Navbar() {
+export default function Navbar() {
   const [active, setActive] = useState(false);
   const [open, setOpen] = useState(false);
-
   const { pathname } = useLocation();
   const navigate = useNavigate();
+  const menuRef = useRef(null);
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -18,6 +18,19 @@ function Navbar() {
     window.addEventListener("scroll", isActive);
     return () => {
       window.removeEventListener("scroll", isActive);
+    };
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -34,50 +47,45 @@ function Navbar() {
   };
 
   return (
-    <div className={active || pathname !== "/" ? "navbar active" : "navbar"}>
+    <nav className={active || pathname !== "/" ? "navbar active" : "navbar"}>
       <div className="container">
         <div className="logo">
-          <Link className="link" to="/">
-            <span className="text">SkillShareMarket</span>
+          <Link to="/" className="link">
+            <span className="text">FreelanceResolve</span>
+            <span className="dot">.</span>
           </Link>
-          <span className="dot">.</span>
         </div>
         <div className="links">
-          <span>Bot</span>
+          <span>Chatbot</span>
           <span>English</span>
-          {!currentUser?.isSeller && <span>Become a Seller</span>}
           {currentUser ? (
-            <div className="user" onClick={() => setOpen(!open)}>
-              <img src={currentUser.img || "/img/noman.png"} alt="User" />
-              <span>{currentUser.username}</span>
+            <div className="user" ref={menuRef}>
+              <img
+                src={currentUser.img || "/img/noman.png"}
+                alt={currentUser.username}
+                onClick={() => setOpen(!open)}
+              />
+              <span onClick={() => setOpen(!open)}>{currentUser.username}</span>
               {open && (
                 <div className="options">
                   {currentUser.isSeller && (
                     <>
-                      <Link className="link" to="/mygigs">
-                        Gigs
-                      </Link>
-                      <Link className="link" to="/add">
-                        Add New Gig
-                      </Link>
+                      <Link to="/mygigs">Gigs</Link>
+                      <Link to="/add">Add New Gig</Link>
                     </>
                   )}
-                  <Link className="link" to="/orders">
-                    Orders
-                  </Link>
-                  <Link className="link" to="/messages">
-                    Messages
-                  </Link>
-                  <Link className="link" onClick={handleLogout}>
-                    Logout
-                  </Link>
+                  <Link to="/orders">Orders</Link>
+                  <Link to="/messages">Messages</Link>
+                  <button onClick={handleLogout}>Logout</button>
                 </div>
               )}
             </div>
           ) : (
             <>
-              <Link to="/login" className="link">Sign in</Link>
-              <Link className="link" to="/register">
+              <Link to="/login" className="link">
+                Sign in
+              </Link>
+              <Link to="/register" className="link">
                 <button>Join</button>
               </Link>
             </>
@@ -85,42 +93,18 @@ function Navbar() {
         </div>
       </div>
       {(active || pathname !== "/") && (
-        <>
-          <hr />
-          <div className="menu">
-            <Link className="link menuLink" to="/">
-              Graphics & Design
-            </Link>
-            <Link className="link menuLink" to="/">
-              Video & Animation
-            </Link>
-            <Link className="link menuLink" to="/">
-              Writing & Translation
-            </Link>
-            <Link className="link menuLink" to="/">
-              AI Services
-            </Link>
-            <Link className="link menuLink" to="/">
-              Digital Marketing
-            </Link>
-            <Link className="link menuLink" to="/">
-              Music & Audio
-            </Link>
-            <Link className="link menuLink" to="/">
-              Programming & Tech
-            </Link>
-            <Link className="link menuLink" to="/">
-              Business
-            </Link>
-            <Link className="link menuLink" to="/">
-              Lifestyle
-            </Link>
-          </div>
-          <hr />
-        </>
+        <div className="menu">
+          <Link to="/">Graphics & Design</Link>
+          <Link to="/">Video & Animation</Link>
+          <Link to="/">Writing & Translation</Link>
+          <Link to="/">AI Services</Link>
+          <Link to="/">Digital Marketing</Link>
+          <Link to="/">Music & Audio</Link>
+          <Link to="/">Programming & Tech</Link>
+          <Link to="/">Business</Link>
+          <Link to="/">Lifestyle</Link>
+        </div>
       )}
-    </div>
+    </nav>
   );
 }
-
-export default Navbar;

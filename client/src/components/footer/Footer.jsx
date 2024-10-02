@@ -1,4 +1,3 @@
-
 import "./Footer.css";
 
 function Footer() {
@@ -30,18 +29,17 @@ function Footer() {
             <span>Events</span>
           </div>
           <div className="item">
-            <h2>More From SkillShareMarket</h2>
-            <span>SSM Business</span>
-            <span>SSM Pro</span>
-            <span>SSM Logo Maker</span>
-            <span>SSM Guides</span>
+            <h2>More From FreelanceResolve</h2>
+            <span>FR Business</span>
+            <span>FR Pro</span>
+            <span>FR Logo Maker</span>
+            <span>FR Guides</span>
           </div>
         </div>
-        <hr />
         <div className="bottom">
           <div className="left">
-            <h2>SSM</h2>
-            <span>© SSM International Ltd. 2023</span>
+            <h2>FreelanceResolve</h2>
+            <span>© {new Date().getFullYear()} FreelanceResolve International Ltd.</span>
           </div>
           <div className="right">
             <div className="social">

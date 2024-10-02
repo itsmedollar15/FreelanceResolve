@@ -13,19 +13,15 @@ const CheckoutForm = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isEmailValid, setIsEmailValid] = useState(true); // Track email validity
 
   useEffect(() => {
-    if (!stripe) {
-      return;
-    }
+    if (!stripe) return;
 
     const clientSecret = new URLSearchParams(window.location.search).get(
       "payment_intent_client_secret"
     );
-
-    if (!clientSecret) {
-      return;
-    }
+    if (!clientSecret) return;
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
@@ -48,12 +44,17 @@ const CheckoutForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !elements) {
+    // Basic email validation
+    if (!email.includes("@") || !email.includes(".")) {
+      setIsEmailValid(false);
       return;
+    } else {
+      setIsEmailValid(true);
     }
 
-    setIsLoading(true);
+    if (!stripe || !elements) return;
 
+    setIsLoading(true);
     const { error } = await stripe.confirmPayment({
       elements,
       confirmParams: {
@@ -61,10 +62,14 @@ const CheckoutForm = () => {
       },
     });
 
-    if (error.type === "card_error" || error.type === "validation_error") {
-      setMessage(error.message);
+    if (error) {
+      const errorMessage =
+        error.type === "card_error" || error.type === "validation_error"
+          ? error.message
+          : "An unexpected error occurred.";
+      setMessage(errorMessage);
     } else {
-      setMessage("An unexpected error occurred.");
+      setMessage("Payment confirmed!");
     }
 
     setIsLoading(false);
@@ -75,18 +80,38 @@ const CheckoutForm = () => {
   };
 
   return (
-    <form id="payment-form" onSubmit={handleSubmit}>
+    <form
+      id="payment-form"
+      onSubmit={handleSubmit}
+      aria-labelledby="payment-form-title"
+    >
+      <h2 id="payment-form-title">Checkout</h2>
       <LinkAuthenticationElement
         id="link-authentication-element"
         onChange={(e) => setEmail(e.target.value)}
+        aria-invalid={!isEmailValid} // Accessibility improvement
+        aria-describedby="email-error" // Link to error message if invalid
       />
+      {!isEmailValid && (
+        <div id="email-error" className="error-message">
+          Please enter a valid email address.
+        </div>
+      )}
+
       <PaymentElement id="payment-element" options={paymentElementOptions} />
       <button disabled={isLoading || !stripe || !elements} id="submit">
         <span id="button-text">
           {isLoading ? <div className="spinner" id="spinner"></div> : "Pay now"}
         </span>
       </button>
-      {message && <div id="payment-message">{message}</div>}
+      {message && (
+        <div
+          id="payment-message"
+          className={isLoading ? "loading-message" : "success-message"}
+        >
+          {message}
+        </div>
+      )}
     </form>
   );
 };

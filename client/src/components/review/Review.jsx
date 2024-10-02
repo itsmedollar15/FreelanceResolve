@@ -14,14 +14,18 @@ const Review = ({ review }) => {
   return (
     <div className="review">
       {isLoading ? (
-        <p>Loading...</p>
+        <p className="loading-text">Loading...</p>
       ) : error ? (
-        <p>Error loading user data</p>
+        <p className="error-text">Error loading user data</p>
       ) : (
         <div className="user">
-          <img className="pp" src={data.img || "/img/noman.png"} alt="Profile picture" />
+          <img
+            className="pp"
+            src={data.img || "/img/noman.png"}
+            alt="Profile"
+          />
           <div className="info">
-            <span>{data.username}</span>
+            <span className="username">{data.username}</span>
             <div className="country">
               <span>{data.country}</span>
             </div>
@@ -29,20 +33,22 @@ const Review = ({ review }) => {
         </div>
       )}
       <div className="stars">
-        {Array(review.star)
-          .fill()
-          .map((_, i) => (
-            <img src="/icons/star.png" alt="Star rating" key={i} />
-          ))}
-        <span>{review.star}</span>
+        {Array.from({ length: review.star }, (_, i) => (
+          <img src="/icons/star.png" alt="Star rating" key={i} />
+        ))}
+        <span className="star-count">{review.star}</span>
       </div>
-      <p>{review.desc}</p>
+      <p className="review-desc">{review.desc}</p>
       <div className="helpful">
         <span>Helpful?</span>
-        <img src="/icons/like.png" alt="Like" />
-        <span>Yes</span>
-        <img src="/icons/dislike.png" alt="Dislike" />
-        <span>No</span>
+        <button className="helpful-btn">
+          <img src="/icons/like.png" alt="Like" />
+          <span>Yes</span>
+        </button>
+        <button className="helpful-btn">
+          <img src="/icons/dislike.png" alt="Dislike" />
+          <span>No</span>
+        </button>
       </div>
     </div>
   );
