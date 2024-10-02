@@ -1,69 +1,85 @@
 .messages {
-    display: flex;
-    justify-content: center;
-  }
-  th{
-    text-align: left;
-  }
-  .messages .container {
-    width: 1400px;
-    padding: 50px 0px;
-  }
-  
-  .messages .container .title {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .title h1 {
-    color: gray;
-    font-weight: 300;
-  }
-  
-  .messages .container table {
-    width: 100%;
-  }
-  
-  .messages .container table tr {
-    height: 100px;
-  }
-  
-  messages .container table th {
-    text-align: left;
-  }
-  
-  messages .container table td {
-    padding: 10px;
-  }
-  
-  td:first-child {
-    font-weight: 500;
-  }
-  
-  messages .container table td:nth-child(2),
-  messages .container table td:nth-child(3) {
-    color: gray;
-  }
-  
-  button{
-    background-color: #1dbf73;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-  }
+  display: flex;
+  justify-content: center;
+  padding: 20px; /* Add padding around the messages section */
+  background-color: #f9f9f9; /* Light background for the entire section */
+}
 
-  messages .container table tr.active {
-    background-color: #1dbf730f;
-  }
+.messages .container {
+  max-width: 1400px;
+  width: 100%; /* Responsive container */
+  padding: 50px 20px; /* Horizontal padding */
+  background-color: white; /* White background for the container */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
 
-  tr.active {
-    background-color: #1dbf730f;
-  }
-  
-  .messages .container .link {
-    text-decoration: none;
-    color: #1dbf73;
-    font-weight: 500;
-    cursor: pointer;
-  }
+.messages .container .title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px; /* Margin below title */
+}
+
+.title h1 {
+  color: #333; /* Darker title color */
+  font-weight: 300;
+}
+
+.messages .container table {
+  width: 100%;
+  border-collapse: collapse; /* Collapse borders */
+}
+
+.messages .container table th {
+  text-align: left;
+  background-color: #f2f2f2; /* Light gray background for the header */
+  padding: 15px; /* Padding for header */
+  color: #666; /* Darker text for better contrast */
+}
+
+.messages .container table tr {
+  height: 100px; /* Row height */
+}
+
+.messages .container table td {
+  padding: 10px; /* Padding for table cells */
+}
+
+td:first-child {
+  font-weight: 500; /* Bold for first column */
+}
+
+.messages .container table td:nth-child(2),
+.messages .container table td:nth-child(3) {
+  color: gray; /* Gray text for certain columns */
+}
+
+button {
+  background-color: #1dbf73; /* Button color */
+  color: white;
+  padding: 10px 15px; /* Added horizontal padding */
+  border: none;
+  border-radius: 5px; /* Rounded button corners */
+  cursor: pointer;
+  transition: background-color 0.3s; /* Smooth color transition */
+}
+
+button:hover {
+  background-color: #17a363; /* Darker green on hover */
+}
+
+.messages .container table tr.active {
+  background-color: #e9ffe9; /* Light green background for active rows */
+}
+
+.messages .container .link {
+  text-decoration: none; /* No underline */
+  color: #1dbf73; /* Link color */
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.messages .no-conversations {
+  text-align: center; /* Center align no conversations message */
+  color: #999; /* Gray color for the message */
+}

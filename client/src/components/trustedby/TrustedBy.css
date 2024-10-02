@@ -1,21 +1,51 @@
 .trustedBy {
-    background-color: #fafafa;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-  }
-  
+  background-color: #131111; /* Dark background for better contrast */
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center items vertically */
+  padding: 20px 0; /* Add vertical padding */
+}
+
+.trustedBy .container {
+  max-width: 1200px; /* Increased max-width for larger screens */
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Increased gap for better spacing */
+  color: rgb(200, 200, 200); /* Light grey for better readability */
+  font-weight: 600; /* Slightly bolder text */
+}
+
+.trustedBy .trustedBy-text {
+  font-size: 18px; /* Increased font size for better visibility */
+  color: #fff; /* White color for the "Trusted by" text */
+}
+
+.trustedBy .trustedBy-logos {
+  display: flex;
+  align-items: center;
+  gap: 30px; /* Adjust spacing between logos */
+}
+
+.trustedBy .trustedBy-logo {
+  height: 50px; /* Keep original size */
+  object-fit: contain;
+  transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.trustedBy .trustedBy-logo:hover {
+  transform: scale(1.1); /* Slightly scale up on hover for effect */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .trustedBy .container {
-    max-width: 760px;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    color: rgb(200, 200, 200);
-    font-weight: 500;
+    flex-direction: column; /* Stack logos vertically on small screens */
+    align-items: center; /* Center items */
+    gap: 10px; /* Reduce gap */
   }
-  
-  .trustedBy .container img {
-    height: 50px;
-    object-fit: contain;
+
+  .trustedBy .trustedBy-text {
+    margin-bottom: 10px; /* Add space between text and logos */
   }
-  
+}

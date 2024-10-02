@@ -1,29 +1,36 @@
 .add {
   display: flex;
   justify-content: center;
+  background-color: #f7f7f7;
+  padding: 20px 0;
 }
 
 .add .container {
-  width: 1400px;
-  padding: 50px 0px;
+  width: 100%;
+  max-width: 1200px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 40px;
 }
 
 .add .container h1 {
-  width: max-content;
   margin-bottom: 30px;
-  color: gray;
-  font-weight: 300;
+  color: #333;
+  font-weight: 600;
+  text-align: center;
 }
 
 .add .container .sections {
   display: flex;
   justify-content: space-between;
-  gap: 100px;
+  gap: 40px;
 }
 
 .add .container .sections label {
-  color: gray;
-  font-size: 18px;
+  color: #555;
+  font-size: 16px;
+  margin-bottom: 5px;
 }
 
 .add .container .sections .info,
@@ -31,8 +38,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  justify-content: space-between;
+  gap: 15px;
 }
 
 .add .container .sections .info input,
@@ -41,49 +47,99 @@
 .add .container .sections .details input,
 .add .container .sections .details select,
 .add .container .sections .details textarea {
-  padding: 20px;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+.add .container .sections .info input:focus,
+.add .container .sections .info select:focus,
+.add .container .sections .info textarea:focus,
+.add .container .sections .details input:focus,
+.add .container .sections .details select:focus,
+.add .container .sections .details textarea:focus {
+  border-color: #1dbf73;
+  outline: none;
 }
 
 .add .container .sections .info .images {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 20px;
 }
 
 .add .container .sections .info .images .imagesInputs {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  flex: 1;
 }
 
-.add .container .sections .info button,
-.add .container .sections .details button {
+.add .container .sections .info .upload-button,
+.add .container .sections .details .create-button,
+.add .container .sections .info .feature-button,
+.add .container .sections .info .remove-feature {
   border: none;
-  padding: 20px;
+  padding: 12px;
   color: white;
   font-weight: 500;
-  font-size: 18px;
+  font-size: 16px;
   background-color: #1dbf73;
   cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
 }
 
-.add .container .sections .info .add input {
-  width: 80%;
+.add .container .sections .info .upload-button:hover,
+.add .container .sections .details .create-button:hover,
+.add .container .sections .info .feature-button:hover,
+.add .container .sections .info .remove-feature:hover {
+  background-color: #17a054;
 }
 
-.add .container .sections .info .addedFeatures {
+.add .container .sections .details .item {
   display: flex;
-  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 
-.add .container .sections .info .addedFeatures button {
-  height: 30px;
-  font-size: 12px;
-  font-weight: 400;
-  background: transparent;
-  color: red;
-  border: 1px solid red;
+.add .container .sections .details .addedFeatures {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add .container .sections .details .remove-feature {
   display: flex;
   align-items: center;
-  gap: 20px;
+  justify-content: space-between;
+  background: #e74c3c;
+}
+
+.add .container .sections .details .remove-feature span {
+  margin-left: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.add .container .sections .info .imagesInputs input[type="file"] {
+  padding: 6px;
+}
+
+.add .container .sections .info textarea {
+  resize: vertical;
+}
+
+.add .container .sections .info .feature-button {
+  background-color: #3498db;
+}
+
+.add .container .sections .info .feature-button:hover {
+  background-color: #2980b9;
 }

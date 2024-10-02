@@ -1,81 +1,74 @@
-   .footer h2 {
-     color: black;
-   }
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px; /* More breathing room */
+  background-color: #f8f8f8; /* Light background color */
+  color: #333; /* Dark text for better readability */
+}
 
-   .footer {
-     display: flex;
-     justify-content: center;
-     color: #999;
-     margin: 50px 0px;
-   }
+.footer h2 {
+  color: #1dbf73; /* Green color for headings */
+  margin-bottom: 10px; /* Spacing below headings */
+}
 
-   .footer .top {
-     display: flex;
-     justify-content: space-between;
-   }
+.footer .top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+}
 
+.footer .container .top .item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Smaller gaps for a cleaner look */
+  min-width: 150px; /* Minimum width for items */
+}
 
-   .footer .container .top .item {
-     display: flex;
-     flex-direction: column;
-     gap: 20px;
-   }
+.footer img {
+  width: 20px; /* Slightly smaller icons */
+  height: 20px;
+}
 
-   .footer img {
-     width: 24px;
-     height: 24px;
-   }
+.footer .container {
+  max-width: 1200px; /* Maximum width for the container */
+  width: 100%; /* Full width */
+}
 
-   .footer .container {
-     display: flex;
-     flex-direction: column;
-   }
+.footer .bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px; /* Spacing between top and bottom */
+  flex-wrap: wrap; /* Responsive design */
+}
 
-   .footer .bottom {
-     display: flex;
-     justify-content: space-around;
-   }
+.footer .left {
+  display: flex;
+  flex-direction: column;
+  font-size: 14px; /* Slightly larger font for better readability */
+}
 
-   .footer .container {
-     width: 1400px;
-   }
+.footer .container hr {
+  margin: 20px 0;
+  height: 1px;
+  border: none;
+  background-color: #ddd; /* Light separator */
+}
 
-   .footer .container .bottom .left {
-     display: flex;
-     align-items: center;
-     gap: 30px;
-   }
+.footer .container .bottom .right {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Moderate spacing */
+}
 
-   .footer .container .bottom .left {
+.footer .container .bottom .right .link {
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Smaller gap between icon and text */
+}
 
-     font-size: 13px;
-
-   }
-
-   .footer .container hr {
-     margin: 50px 0px;
-     height: 0;
-     border: 1px solid rgb(237, 235, 235);
-
-   }
-
-
-   .footer .container .bottom .right {
-     display: flex;
-     align-items: center;
-     gap: 20px;
-   }
-
-
-   .footer .container .bottom .right .link {
-     display: flex;
-     align-items: center;
-     gap: 20px;
-   }
-
-   .footer .container .bottom .social {
-     display: flex;
-     align-items: center;
-     gap: 20px;
-     justify-content: space-between;
-   }
+.footer .social {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Moderate spacing for social icons */
+}

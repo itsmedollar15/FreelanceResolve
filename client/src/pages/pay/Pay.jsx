@@ -6,15 +6,12 @@ import newRequest from "../../utils/newRequest";
 import { useParams } from "react-router-dom";
 import CheckoutForm from "../../components/checkoutForm/CheckoutForm.jsx";
 
-const stripePromise = loadStripe(
-  "pk_test_51O6WqkSFXPZSMru9I2Rec36Vh01oqEgV5BQI1LM2yHo7Lm6ZiT6Lj9rkm0V9lEEZ5dWHjguXFpcDkAr1dYuRitcZ00T35TI4Tf"
-);
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 
 const Pay = () => {
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -26,31 +23,41 @@ const Pay = () => {
         setClientSecret(res.data.clientSecret);
       } catch (err) {
         setError("Failed to load payment details. Please try again.");
-        console.error(err);
+        console.error("Payment error:", err); // More descriptive error log
       } finally {
         setLoading(false);
       }
     };
+
     makeRequest();
   }, [id]);
 
   const appearance = {
     theme: "stripe",
   };
+
   const options = {
     clientSecret,
     appearance,
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p className="error">{error}</p>;
+  // Improved loading and error handling
+  if (loading) {
+    return <div className="loading">Loading payment details...</div>;
+  }
+
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
 
   return (
     <div className="pay">
-      {clientSecret && (
+      {clientSecret ? (
         <Elements options={options} stripe={stripePromise}>
           <CheckoutForm />
         </Elements>
+      ) : (
+        <div className="no-payment-details">No payment details available.</div>
       )}
     </div>
   );

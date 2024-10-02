@@ -10,7 +10,6 @@ const Add = () => {
   const [singleFile, setSingleFile] = useState(null);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
-
   const [state, dispatch] = useReducer(gigReducer, INITIAL_STATE);
 
   const handleChange = (e) => {
@@ -36,14 +35,12 @@ const Add = () => {
     setUploading(true);
     try {
       const cover = singleFile ? await upload(singleFile) : null;
-
       const images = await Promise.all(
         Array.from(files).map(async (file) => {
           const url = await upload(file);
           return url;
         })
       );
-
       dispatch({ type: "ADD_IMAGES", payload: { cover, images } });
     } catch (err) {
       console.error("File upload error:", err);
@@ -70,13 +67,10 @@ const Add = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Simple validation
     if (!state.title || !state.cat || !state.desc || !state.price) {
       alert("Please fill in all required fields.");
       return;
     }
-
     mutation.mutate(state);
   };
 
@@ -121,7 +115,7 @@ const Add = () => {
                   onChange={(e) => setFiles(e.target.files)}
                 />
               </div>
-              <button onClick={handleUpload}>
+              <button onClick={handleUpload} className="upload-button">
                 {uploading ? "Uploading..." : "Upload"}
               </button>
             </div>
@@ -134,7 +128,7 @@ const Add = () => {
               rows="10"
               onChange={handleChange}
             ></textarea>
-            <button onClick={handleSubmit}>Create</button>
+            <button onClick={handleSubmit} className="create-button">Create</button>
           </div>
           <div className="details">
             <label htmlFor="shortTitle">Service Title</label>
@@ -175,7 +169,7 @@ const Add = () => {
                 id="addFeatures"
                 placeholder="e.g. page design"
               />
-              <button type="submit">Add</button>
+              <button type="submit" className="feature-button">Add</button>
             </form>
             <div className="addedFeatures">
               {state?.features?.map((f) => (
@@ -184,6 +178,7 @@ const Add = () => {
                     onClick={() =>
                       dispatch({ type: "REMOVE_FEATURE", payload: f })
                     }
+                    className="remove-feature"
                   >
                     {f}
                     <span>X</span>

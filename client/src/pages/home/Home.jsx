@@ -1,4 +1,3 @@
-
 import "./Home.css";
 import Slide from "../../components/slider/Slide";
 import { cards, projects } from "../../data";
@@ -62,18 +61,18 @@ const Home = () => {
       <div className="features dark">
         <div className="container">
           <div className="item">
-            <h1>SkillShare Businesses</h1>
-            <h2>Explore our businesses and join to get the best services.</h2>
+            <h1>FreelanceResolve</h1>
+            <h2>Explore our services and join to unlock your project's potential.</h2>
             <p>
-              Upgrade to a curated experience packed with tools and benefits, dedicated to businesses.
+              Upgrade to a curated experience packed with tools and benefits, dedicated to freelancers and businesses.
             </p>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Connect with freelancers with proven business experience
+              Connect with freelancers who have proven experience
             </div>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Get matched with the perfect talents
+              Get matched with the perfect talent for your needs
             </div>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />

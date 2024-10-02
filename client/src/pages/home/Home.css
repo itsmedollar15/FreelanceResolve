@@ -1,37 +1,22 @@
 .home .features {
-  background-color: #f1fdf7;
+  background-color: #333; /* Dark background color */
   display: flex;
   justify-content: center;
-  padding: 100px 0;
+  padding: 100px 50px;
 }
 
 .home .features.dark {
-
-  background: rgb(242, 242, 242);
-  background: linear-gradient(90deg, rgba(242, 242, 242, 1) 0%, rgba(222, 222, 222, 1) 95%);
+  background: #222; /* Darker gradient background for dark mode */
 }
 
-.home .features.dark h1 {
-  color: black !important;
-}
-
-.home .features.dark i {
-  font-weight: 300;
-}
-
-.home .features.dark p {
-  margin-bottom: 20px;
-  color: black !important;
-}
-
+.home .features.dark h1,
+.home .features.dark p,
 .home .features.dark .title {
-  color: black !important;
-  font-weight: 300 !important;
-  font-size: 14px !important;
+  color: #f5f5f5 !important; /* Light text color for better contrast */
 }
 
 .home .features.dark button {
-  background-color: #1dbf73;
+  background-color: #1dbf73; /* Keep button color consistent */
   border: none;
   color: white;
   padding: 10px 20px;
@@ -65,6 +50,7 @@
 
 .home .features .container .item img {
   width: 100%;
+  border-radius: 10px; /* Added border-radius for images */
 }
 
 .home .features .container .item h1 {
@@ -78,7 +64,7 @@
   gap: 10px;
   font-weight: 500;
   font-size: 18px;
-  color: #666;
+  color: #ccc; /* Lighter color for titles */
 }
 
 .home .features .container .item .title img {
@@ -89,7 +75,7 @@
 .home .features .container .item p {
   font-size: 18px;
   font-weight: 300;
-  color: black;
+  color: #f5f5f5; /* Light color for paragraph text */
   line-height: 28px;
   letter-spacing: 1px;
 }
@@ -98,6 +84,7 @@
   width: 720px;
 }
 
+/* Explore section styles */
 .home .explore {
   display: flex;
   justify-content: center;
@@ -152,18 +139,23 @@
   background-color: #1dbf73;
 }
 
+/* Button Styles */
 .business-explore-button {
   z-index: 49;
   background-color: yellow;
   transition: 0.3s ease;
 }
 
+/* Heading Styles */
 h2 {
-  color: black;
+  color: white;
 }
 
+h1 {
+  color: white;
+}
 
-
-.home .features .container .item  .clean-desk-image{
-  border-radius: 10px;
+/* Clean desk image */
+.home .features .container .item .clean-desk-image {
+  border-radius: 10px; /* Ensure clean desk image has rounded corners */
 }

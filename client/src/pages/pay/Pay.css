@@ -1,0 +1,19 @@
+.pay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height for centering */
+    background-color: #f9f9f9; /* Light background for better contrast */
+  }
+  
+  .loading, .error-message, .no-payment-details {
+    text-align: center;
+    font-size: 18px; /* Larger font size for visibility */
+    color: #666; /* Grey color for less emphasis */
+  }
+  
+  .error-message {
+    color: #e74c3c; /* Red color for error messages */
+    font-weight: bold; /* Bold for emphasis */
+  }
+  

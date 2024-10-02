@@ -1,0 +1,22 @@
+/* MyGigsTable.css */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure no gaps between cells */
+  }
+  
+  td, th {
+    padding: 15px 10px; /* Add left and right padding */
+    text-align: left; /* Align text to the left */
+  }
+  
+  .image {
+    width: 50px; /* Set image size */
+    height: 50px; /* Set image size */
+    border-radius: 5px; /* Add rounded corners */
+  }
+  
+  .delete {
+    width: 25px; /* Set message icon size */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  

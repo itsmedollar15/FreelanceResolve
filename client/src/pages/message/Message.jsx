@@ -2,18 +2,16 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Link, useParams } from "react-router-dom";
 import newRequest from "../../utils/newRequest";
 import "./Message.css";
+import MessageItem from "./MessageItem"; // New component for individual messages
 
 const Message = () => {
   const { id } = useParams();
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
-
   const queryClient = useQueryClient();
 
   const { isLoading, error, data = [] } = useQuery({
     queryKey: ["messages", id],
-    queryFn: () =>
-      newRequest.get(`/messages/${id}`).then((res) => res.data),
-    // Ensuring that data is always an array
+    queryFn: () => newRequest.get(`/messages/${id}`).then((res) => res.data),
   });
 
   const mutation = useMutation({
@@ -48,16 +46,12 @@ const Message = () => {
         ) : (
           <div className="messages">
             {data.map((m) => (
-              <div
-                className={m.userId === currentUser._id ? "owner item" : "item"}
-                key={m._id}
-              >
-                <img
-                  src={m.userId === currentUser._id ? currentUser.img : "/public/img/noman.png"}
-                  alt="User"
-                />
-                <p>{m.desc}</p>
-              </div>
+              <MessageItem 
+                key={m._id} 
+                message={m} 
+                isOwner={m.userId === currentUser._id} 
+                userImage={m.userId === currentUser._id ? currentUser.img : "/public/img/noman.png"} 
+              />
             ))}
           </div>
         )}

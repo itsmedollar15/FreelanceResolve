@@ -1,44 +1,77 @@
+/* Reviews.css */
 .reviews {
-    margin-top: 50px;
-  }
-  
-  .reviews .add {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .reviews .add .addForm {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .reviews .add .addForm input {
-    padding: 20px;
-  }
-  
-  .reviews .add .addForm select {
-    width: 200px;
-    padding: 20px;
-    align-self: flex-end;
-  }
-  
-  .reviews .add .addForm button {
-    align-self: flex-end;
-    width: 100px;
-    border: none;
-    padding: 10px;
-    color: white;
-    background-color: #1dbf73;
-    cursor: pointer;
-  }
-  
-  .reviews hr {
-    height: 0.5px;
-    border: none;
-    border-top: 0.5px solid lightgray;
-    margin: 50px 0;
-  }
-  
+  margin-top: 50px;
+  padding: 20px; /* Add padding for better spacing */
+  background-color: #f9f9f9; /* Light background for contrast */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.reviews-title {
+  font-size: 24px; /* Larger font for title */
+  font-weight: bold; /* Bold title for emphasis */
+  margin-bottom: 10px; /* Space below the title */
+}
+
+.loading-text,
+.error-text {
+  text-align: center; /* Center text for loading and error states */
+  color: #555; /* Gray color for text */
+}
+
+.add-review {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between elements */
+}
+
+.add-review-title {
+  font-size: 20px; /* Title size for adding reviews */
+  font-weight: 600; /* Semi-bold title */
+}
+
+.addForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form elements */
+}
+
+.addForm label {
+  font-weight: bold; /* Bold labels for clarity */
+}
+
+.addForm input,
+.addForm select {
+  padding: 12px; /* Adjust padding for inputs */
+  border-radius: 4px; /* Rounded corners for inputs */
+  border: 1px solid #ccc; /* Light border for inputs */
+}
+
+.addForm select {
+  align-self: flex-start; /* Align select to the left */
+  width: auto; /* Use automatic width for flexibility */
+}
+
+.submit-button {
+  align-self: flex-end; /* Align button to the right */
+  width: 100px; /* Fixed width for the button */
+  border: none; /* Remove border */
+  padding: 10px;
+  color: white; /* White text color */
+  background-color: #1dbf73; /* Green background color */
+  cursor: pointer; /* Pointer cursor on hover */
+  border-radius: 4px; /* Rounded corners for the button */
+  transition: background-color 0.3s; /* Smooth background transition */
+}
+
+.submit-button:hover {
+  background-color: #17a054; /* Darker green on hover */
+}
+
+.divider {
+  height: 1px; /* Height of the divider */
+  border: none; /* Remove default border */
+  background-color: lightgray; /* Color of the divider */
+  margin: 30px 0; /* Space around the divider */
+}

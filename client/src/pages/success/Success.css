@@ -1,8 +1,47 @@
-.success .container{
-    font-family: cursive;
-    font-style:italic;
-    background-color: whitesmoke;
-    text-align: center;
-    padding: 80px ;
-    font-weight: 500;
+.success {
+  background-color: #f0f0f0; /* Light gray background for a subtle effect */
+  height: 100vh; /* Full viewport height for centering */
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically and horizontally */
+}
+
+.success .container {
+  background-color: #ffffff; /* White background for the container */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  text-align: center;
+  padding: 40px; /* Reduced padding for a more compact look */
+  font-weight: 500;
+  max-width: 600px; /* Limit the width for better readability */
+}
+
+.success-title {
+  font-family: "Cursive", sans-serif; /* Cursive font for the title */
+  font-size: 36px; /* Increased font size for emphasis */
+  color: #4caf50; /* Green color for a positive vibe */
+  margin-bottom: 20px; /* Space below the title */
+}
+
+.success-message,
+.success-thank-you {
+  font-size: 18px; /* Standard font size for messages */
+  color: #333; /* Dark text for readability */
+  margin-bottom: 15px; /* Space below each message */
+}
+
+.success-button {
+  background-color: #4caf50; /* Green button color */
+  color: white; /* White text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px 20px; /* Padding for button */
+  font-size: 16px; /* Button text size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.success-button:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
 }

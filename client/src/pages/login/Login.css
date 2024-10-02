@@ -1,45 +1,58 @@
 .login {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .login form {
-    width: 360px;
-    padding: 100px 0px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .login form h1 {
-    color: gray;
-    margin-bottom: 20px;
-  }
-  
-  .login form label {
-    color: gray;
-    font-size: 18px;
-  }
-  
-  .login form input,
-  .login form textarea {
-    padding: 20px;
-    border: 1px solid rgb(216, 214, 214);
-  }
-  
-  .login form button {
-    border: none;
-    padding: 20px;
-    color: white;
-    font-weight: 500;
-    font-size: 18px;
-    background-color: #1dbf73;
-    cursor: pointer;
-  }
-  
-  .login form span {
-    color: red;
-    font-size: 12px;
-  }
-  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Full height for better centering */
+  background-color: #f5f5f5; /* Light background color */
+}
+
+.login form {
+  width: 360px;
+  padding: 40px; /* Reduced padding for a more compact form */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background-color: white; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.login form h1 {
+  color: #333; /* Darker text color for better readability */
+  margin-bottom: 20px;
+  text-align: center; /* Center the title */
+}
+
+.login form label {
+  color: #555; /* Slightly darker than before for better contrast */
+  font-size: 16px; /* Smaller font size */
+}
+
+.login form input {
+  padding: 15px; /* Reduced padding */
+  border: 1px solid rgb(216, 214, 214);
+  border-radius: 4px; /* Rounded input corners */
+  font-size: 14px; /* Font size for inputs */
+}
+
+.login form button {
+  border: none;
+  padding: 15px; /* Reduced padding */
+  color: white;
+  font-weight: 600; /* Bolder font weight */
+  font-size: 16px; /* Font size for button */
+  background-color: #1dbf73; /* Green color */
+  cursor: pointer;
+  border-radius: 4px; /* Rounded button corners */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.login form button:hover {
+  background-color: #17a45d; /* Darker green on hover */
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  text-align: center; /* Center error message */
+}

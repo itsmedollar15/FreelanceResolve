@@ -1,167 +1,131 @@
 .featured {
-    height: 680px;
-    display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    background-color: #000000;
-    color: white;
-    position: relative; /* Add this for relative positioning */
-  }
-  
-  .featured .container {
-    width: 1400px;
-    display: flex;
-    align-items: center;
-    background-image: url("./img/man.png"); /* URL to your image */
-    background-size: cover;
-    background-position: center;
-  }
-  
-  .featured .container .left {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    z-index: 1;
-  }
-  
-  .featured .container h1 {
-    font-size: 50px;
-  }
-  
-  .featured .container h1 span {
-    font-style: italic;
-    font-weight: 300;
-  }
-  
-  .featured .container .search {
-    background-color: white;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    overflow: hidden;
-  }
-  
-  .featured .container .search .searchInput {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .featured .container .search .searchInput img {
-    width: 20px;
-    height: 20px;
-    margin: 10px;
-  }
-  
-  .featured .container .search .searchInput input {
-    border: none;
-    outline: none;
-  }
-  
-  .featured .container .search .searchInput input::placeholder {
-    color: gray;
-  }
-  
-  .featured .container .search button {
-    width: 120px;
-    height: 50px;
-    border: none;
-    background-color: #1dbf73;
-    color: white;
-    align-self: flex-end;
-    cursor: pointer;
-    margin: 5px 5px;
-  }
-  
-  .featured .container .popular {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-  }
-  
-  .featured .container .popular span {
-    width: max-content;
-  }
-  
-  .featured .container .popular button {
-    width: max-content;
-    color: white;
-    border: none;
-    background-color: transparent;
-    padding: 5px 10px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  .featured .container .popular button:hover {
-    background-color: #5089a1;
-    box-shadow: 0 0 5px #5089a1,
-        0 0 20px #5089a1,
-        0 0 60px #5089a1,
-        0 0 150px #5089a1;
-    color: black;
-    transition: 0.5s ease;
-}
-  .featured .container .right {
-    position: absolute; /* Set the right div to absolute positioning */
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-  
-  .featured .container .right img {
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-  /* =====================Below work of changing the text dynamically is still pending================================================ */
-
-/* .featured .container .left .text{
+  height: 680px;
   display: flex;
   justify-content: center;
-    /* position: relative; */
-  /* overflow: hidden; 
+  background-color: #ffffff; /* Light background for a minimalistic feel */
+  color: white; /* Dark text for readability */
 }
 
-.featured .container .left .text .first-text{
-  color: #fff;
+.featured .container {
+  width: 100%; /* Make it responsive */
+  max-width: 1400px; /* Set a maximum width */
+  display: flex;
+  align-items: center;
+  position: relative; /* Relative positioning for child elements */
+  padding: 0 20px; /* Add horizontal padding */
 }
 
-.featured .container .left .text .third-text{
-  color: #fff;
-}
-.featured .container .left .text .sec-text:before{
-  content: "";
-  position: absolute;
-  color: #4070f4;
-  background-color: transparent;
-  background-color: yellow;
-  border-left: 2px solid #4070f4;
-  animation: animate 4s steps(12) infinite;
-  
+.featured .container .left {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Reduced gap for a more compact look */
+  z-index: 1;
+  padding-left: 50px; /* Add left padding to the text */
 }
 
-@keyframes animate{
-  40% , 60%{
-    left: 100%;
-  }
-  100%{
-    left: 0%;
-  }
-} */
+.featured .container h1 {
+  font-size: 48px; /* Slightly smaller font size */
+  line-height: 1.2; /* Improved line height for readability */
+  margin-bottom: 20px; /* Margin below the title */
+  text-align: left; /* Align text to the left */
+}
+
+.featured .container h1 .highlight {
+  font-style: italic; /* Italic style */
+  font-weight: 700; /* Bold font weight */
+  color: #1dbf73; /* Green highlight color */
+}
+
+.featured .container .search {
+  background-color: #f4f4f4; /* Light grey for search box */
+  border-radius: 25px; /* More rounded corners for a modern look */
+  display: flex;
+  align-items: center;
+  padding: 10px 15px; /* Padding inside the search box */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.featured .container .search .searchInput {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1; /* Allow input to take remaining space */
+}
+
+.featured .container .search .searchInput img {
+  width: 24px; /* Slightly larger icon */
+  height: 24px;
+}
+
+.featured .container .search .searchInput input {
+  border: none;
+  outline: none;
+  padding: 10px; /* Padding for input */
+  flex: 1; /* Allow input to take remaining space */
+  border-radius: 25px; /* Match search bar border radius */
+  font-size: 16px; /* Increased font size */
+  color: #333; /* Darker text color for input */
+}
+
+.featured .container .search .searchInput input::placeholder {
+  color: #999; /* Light grey for placeholder */
+}
+
+.featured .container .search button {
+  width: 120px;
+  height: 50px;
+  border: none;
+  background-color: #1dbf73; /* Green button */
+  color: white;
+  border-radius: 25px; /* Match search bar border radius */
+  cursor: pointer;
+  margin-left: 10px; /* Space between input and button */
+  transition: background-color 0.3s; /* Transition effect */
+  font-size: 16px; /* Font size for button */
+}
+
+.featured .container .search button:hover {
+  background-color: #1a9f60; /* Darker green on hover */
+}
+
+.featured .container .popular {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Increased gap for better spacing */
+  margin-top: 10px; /* Add space above popular section */
+}
+
+.featured .container .popular span {
+  font-weight: bold; /* Bold for emphasis */
+  color: #666; /* Grey color for better readability */
+}
+
+.featured .container .popular button {
+  color: #1dbf73; /* Green text for buttons */
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px 10px; /* Padding for buttons */
+  border-radius: 15px; /* Rounded corners for buttons */
+  transition: color 0.3s; /* Transition effect */
+  font-size: 14px; /* Font size for buttons */
+}
+
+.featured .container .popular button:hover {
+  color: #1a9f60; /* Darker green on hover */
+  text-decoration: underline; /* Underline on hover */
+}
+
+.featured .container .right {
+  position: absolute; /* Absolute positioning for the right section */
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.featured .container .right img {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}

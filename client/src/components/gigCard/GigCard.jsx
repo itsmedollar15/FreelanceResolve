@@ -12,25 +12,26 @@ const GigCard = ({ item }) => {
         return res.data;
       }),
   });
+
   return (
     <Link to={`/gig/${item._id}`} className="link">
       <div className="gigCard">
-        <img src={item.cover} alt="" />
+        <img src={item.cover} alt={item.desc} />
         <div className="info">
           {isLoading ? (
-            "loading"
+            <p>Loading...</p>
           ) : error ? (
-            "Something went wrong!"
+            <p>Something went wrong!</p>
           ) : (
             <div className="user">
-              <img src={data.img || "/img/noman.png"} alt="" />
-              <span>{data.username}</span>
+              <img src={data.img || "/img/noman.png"} alt={data.username} />
+              <span className="username">{data.username}</span>
             </div>
           )}
-          <p>{item.desc}</p>
+          <p className="description">{item.desc}</p>
           <div className="star">
-            <img src="./icons/star.png" alt="" />
-            <span>
+            <img src="./icons/star.png" alt="Star rating" />
+            <span className="rating">
               {!isNaN(item.totalStars / item.starNumber) &&
                 Math.round(item.totalStars / item.starNumber)}
             </span>
@@ -38,7 +39,7 @@ const GigCard = ({ item }) => {
         </div>
         <hr />
         <div className="detail">
-          <img src="./icons/heart.png" alt="" />
+          <img src="./icons/heart.png" alt="Favorite" />
           <div className="price">
             <span>STARTING AT</span>
             <h2>₹ {item.price}</h2>

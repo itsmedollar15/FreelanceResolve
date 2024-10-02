@@ -1,9 +1,9 @@
-
 import { Link } from "react-router-dom";
 import "./MyGigs.css";
 import getCurrentUser from "../../utils/getCurrentUser";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest.js";
+import MyGigsTable from "./MyGigsTable"; // New component for table logic
 
 function MyGigs() {
   const currentUser = getCurrentUser();
@@ -40,47 +40,11 @@ function MyGigs() {
           )}
         </div>
         {isLoading ? (
-          <p>Loading your gigs...</p>
+          <p className="loading">Loading your gigs...</p>
         ) : error ? (
           <p className="error">Something went wrong! Please try again later.</p>
         ) : (
-          <table>
-            <thead>
-              <tr>
-                <th>Image</th>
-                <th>Title</th>
-                <th>Price</th>
-                <th>Sales</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {data.length === 0 ? (
-                <tr>
-                  <td colSpan="5">No gigs found.</td>
-                </tr>
-              ) : (
-                data.map((gig) => (
-                  <tr key={gig._id}>
-                    <td>
-                      <img className="image" src={gig.cover} alt={gig.title} />
-                    </td>
-                    <td>{gig.title}</td>
-                    <td>{gig.price}</td>
-                    <td>{gig.sales}</td>
-                    <td>
-                      <img
-                        className="delete"
-                        src="./img/delete.png"
-                        alt="Delete"
-                        onClick={() => handleDelete(gig._id)}
-                      />
-                    </td>
-                  </tr>
-                ))
-              )}
-            </tbody>
-          </table>
+          <MyGigsTable data={data} onDelete={handleDelete} />
         )}
       </div>
     </div>

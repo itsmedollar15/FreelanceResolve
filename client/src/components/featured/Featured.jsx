@@ -16,8 +16,8 @@ function Featured() {
     <div className="featured">
       <div className="container">
         <div className="left">
-          <h1 className="text first-text">
-            Find the perfect <span className="text sec-text">freelance</span> services for your business
+          <h1 className="main-title">
+            Find the perfect <span className="highlight">freelance</span> services for your business
           </h1>
           <div className="search">
             <div className="searchInput">
@@ -33,10 +33,11 @@ function Featured() {
           </div>
           <div className="popular">
             <span>Popular:</span>
-            <button onClick={() => navigate(`/gigs?search=Web Design`)}>Web Design</button>
-            <button onClick={() => navigate(`/gigs?search=WordPress`)}>WordPress</button>
-            <button onClick={() => navigate(`/gigs?search=Logo Design`)}>Logo Design</button>
-            <button onClick={() => navigate(`/gigs?search=AI Services`)}>AI Services</button>
+            {['Web Design', 'WordPress', 'Logo Design', 'AI Services'].map((service) => (
+              <button key={service} onClick={() => navigate(`/gigs?search=${service}`)}>
+                {service}
+              </button>
+            ))}
           </div>
         </div>
         <div className="right">
