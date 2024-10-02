@@ -1,0 +1,12 @@
+.slide {
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  z-index: 100;
+  background-color: red;
+}
+
+.slide .container {
+  width: 100%; /* Adjust width as needed */
+  overflow: hidden; /* Hide overflowing content */
+}

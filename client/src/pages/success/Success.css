@@ -1,0 +1,8 @@
+.success .container{
+    font-family: cursive;
+    font-style:italic;
+    background-color: whitesmoke;
+    text-align: center;
+    padding: 80px ;
+    font-weight: 500;
+}
