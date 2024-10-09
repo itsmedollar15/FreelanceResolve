@@ -10,9 +10,23 @@ import reviewRoute from "./routes/review.route.js";
 import authRoute from "./routes/auth.route.js";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import helmet from "helmet";
+
+const app = express();
+
+app.use(helmet.contentSecurityPolicy({
+  directives: {
+    defaultSrc: ["'self'"],
+    scriptSrc: [
+      "'self'",
+      "https://m.stripe.network", // Allow Stripe's scripts
+      "'sha256-/5Guo2nzv5n/w6ukZpOBZOtTJBJPSkJ6mhHpnBgm3Ls='" // Add the hash mentioned in the error
+    ]
+  }
+}));
+
 
 dotenv.config();
-const app = express();
 mongoose.set("strictQuery", true);
 
 const connect = async () => {
