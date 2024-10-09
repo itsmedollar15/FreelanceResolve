@@ -5,8 +5,10 @@ import upload from "../../utils/upload";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Import translation hook
 
 const Add = () => {
+  const { t } = useTranslation(); // Hook for translation
   const [singleFile, setSingleFile] = useState(null);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
@@ -68,7 +70,7 @@ const Add = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!state.title || !state.cat || !state.desc || !state.price) {
-      alert("Please fill in all required fields.");
+      alert(t("add.alertMessage")); // Use translation for alert message
       return;
     }
     mutation.mutate(state);
@@ -77,37 +79,37 @@ const Add = () => {
   return (
     <div className="add">
       <div className="container">
-        <h1>Add New Gig</h1>
+        <h1>{t("add.addNewGig")}</h1> {/* Use translation for the title */}
         <div className="sections">
           <div className="info">
-            <label htmlFor="title">Title</label>
+            <label htmlFor="title">{t("add.title")}</label>
             <input
               type="text"
               id="title"
               name="title"
-              placeholder="e.g. I will do something I'm really good at"
+              placeholder={t("add.titlePlaceholder")} // Use translation for placeholder
               onChange={handleChange}
             />
-            <label htmlFor="cat">Category</label>
+            <label htmlFor="cat">{t("add.category")}</label>
             <select name="cat" id="cat" onChange={handleChange}>
-              <option value="design">Design</option>
-              <option value="web">Web Development</option>
-              <option value="animation">Animation</option>
-              <option value="music">Music</option>
-              <option value="painting">Painting</option>
-              <option value="drawing">Drawing</option>
-              <option value="softwareDevelopment">Software Development</option>
-              <option value="videoEditing">Video Editing</option>
+              <option value="design">{t("add.categoryDesign")}</option>
+              <option value="web">{t("add.categoryWeb")}</option>
+              <option value="animation">{t("add.categoryAnimation")}</option>
+              <option value="music">{t("add.categoryMusic")}</option>
+              <option value="painting">{t("add.categoryPainting")}</option>
+              <option value="drawing">{t("add.categoryDrawing")}</option>
+              <option value="softwareDevelopment">{t("add.categorySoftwareDevelopment")}</option>
+              <option value="videoEditing">{t("add.categoryVideoEditing")}</option>
             </select>
             <div className="images">
               <div className="imagesInputs">
-                <label htmlFor="coverImage">Cover Image</label>
+                <label htmlFor="coverImage">{t("add.coverImage")}</label>
                 <input
                   type="file"
                   id="coverImage"
                   onChange={(e) => setSingleFile(e.target.files[0])}
                 />
-                <label htmlFor="uploadImages">Upload Images</label>
+                <label htmlFor="uploadImages">{t("add.uploadImages")}</label>
                 <input
                   type="file"
                   id="uploadImages"
@@ -116,60 +118,60 @@ const Add = () => {
                 />
               </div>
               <button onClick={handleUpload} className="upload-button">
-                {uploading ? "Uploading..." : "Upload"}
+                {uploading ? t("add.uploading") : t("add.upload")} {/* Use translation for button text */}
               </button>
             </div>
-            <label htmlFor="desc">Description</label>
+            <label htmlFor="desc">{t("add.description")}</label>
             <textarea
               name="desc"
               id="desc"
-              placeholder="Brief description to introduce your service to customers"
+              placeholder={t("add.descriptionPlaceholder")} // Use translation for placeholder
               cols="30"
               rows="10"
               onChange={handleChange}
             ></textarea>
-            <button onClick={handleSubmit} className="create-button">Create</button>
+            <button onClick={handleSubmit} className="create-button">{t("add.create")}</button> {/* Use translation for button text */}
           </div>
           <div className="details">
-            <label htmlFor="shortTitle">Service Title</label>
+            <label htmlFor="shortTitle">{t("add.shortTitle")}</label>
             <input
               type="text"
               id="shortTitle"
               name="shortTitle"
-              placeholder="e.g. One-page web design"
+              placeholder={t("add.shortTitlePlaceholder")} // Use translation for placeholder
               onChange={handleChange}
             />
-            <label htmlFor="shortDesc">Short Description</label>
+            <label htmlFor="shortDesc">{t("add.shortDesc")}</label>
             <textarea
               name="shortDesc"
               id="shortDesc"
-              placeholder="Short description of your service"
+              placeholder={t("add.shortDescPlaceholder")} // Use translation for placeholder
               cols="30"
               rows="10"
               onChange={handleChange}
             ></textarea>
-            <label htmlFor="deliveryTime">Delivery Time (e.g. 3 days)</label>
+            <label htmlFor="deliveryTime">{t("add.deliveryTime")}</label>
             <input
               type="number"
               id="deliveryTime"
               name="deliveryTime"
               onChange={handleChange}
             />
-            <label htmlFor="revisionNumber">Revision Number</label>
+            <label htmlFor="revisionNumber">{t("add.revisionNumber")}</label>
             <input
               type="number"
               id="revisionNumber"
               name="revisionNumber"
               onChange={handleChange}
             />
-            <label htmlFor="addFeatures">Add Features</label>
+            <label htmlFor="addFeatures">{t("add.addFeatures")}</label>
             <form className="add" onSubmit={handleFeature}>
               <input
                 type="text"
                 id="addFeatures"
-                placeholder="e.g. page design"
+                placeholder={t("add.addFeaturesPlaceholder")} // Use translation for placeholder
               />
-              <button type="submit" className="feature-button">Add</button>
+              <button type="submit" className="feature-button">{t("add.add")}</button> {/* Use translation for button text */}
             </form>
             <div className="addedFeatures">
               {state?.features?.map((f) => (
@@ -186,7 +188,7 @@ const Add = () => {
                 </div>
               ))}
             </div>
-            <label htmlFor="price">Price</label>
+            <label htmlFor="price">{t("add.price")}</label>
             <input
               type="number"
               id="price"

@@ -1,5 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Import useTranslation hook
 import newRequest from "../../utils/newRequest";
 import ChatBot from "../chatbot/Chatbot"; // Adjust the import path accordingly
 import "./Navbar.css";
@@ -11,6 +12,8 @@ export default function Navbar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const menuRef = useRef(null);
+  const { t, i18n } = useTranslation(); // Initialize translation hook
+  const [language, setLanguage] = useState("en"); // State to track the current language
 
   const isActive = () => {
     window.scrollY > 0 ? setActive(true) : setActive(false);
@@ -22,6 +25,26 @@ export default function Navbar() {
       window.removeEventListener("scroll", isActive);
     };
   }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // Handle language toggle
+  const handleLanguageToggle = () => {
+    const newLanguage = language === "en" ? "hi" : "en";
+    setLanguage(newLanguage);
+    i18n.changeLanguage(newLanguage);
+  };
 
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
 
@@ -50,9 +73,11 @@ export default function Navbar() {
         </div>
         <div className="links">
           <span onClick={toggleChatBot} className="chatbot-btn" style={{ cursor: "pointer" }}>
-            Chatbot
+            {t("navbar.chatbot")} {/* Translatable Chatbot Link */}
           </span>
-          <span>English</span>
+          <button onClick={handleLanguageToggle} className="language-toggle">
+            {language === "en" ? "English" : "हिन्दी"}
+          </button>
           {currentUser ? (
             <div className="user" ref={menuRef}>
               <img
@@ -65,23 +90,23 @@ export default function Navbar() {
                 <div className="options">
                   {currentUser.isSeller && (
                     <>
-                      <Link to="/mygigs">Gigs</Link>
-                      <Link to="/add">Add New Gig</Link>
+                      <Link to="/mygigs">{t("navbar.gigs")}</Link>
+                      <Link to="/add">{t("navbar.addNewGig")}</Link>
                     </>
                   )}
-                  <Link to="/orders">Orders</Link>
-                  <Link to="/messages">Messages</Link>
-                  <button onClick={handleLogout}>Logout</button>
+                  <Link to="/orders">{t("navbar.orders")}</Link>
+                  <Link to="/messages">{t("navbar.messages")}</Link>
+                  <button onClick={handleLogout}>{t("navbar.logout")}</button>
                 </div>
               )}
             </div>
           ) : (
             <>
               <Link to="/login" className="link">
-                Sign in
+                {t("navbar.signIn")}
               </Link>
               <Link to="/register" className="link">
-                <button>Join</button>
+                <button>{t("navbar.join")}</button>
               </Link>
             </>
           )}
@@ -89,15 +114,15 @@ export default function Navbar() {
       </div>
       {(active || pathname !== "/") && (
         <div className="menu">
-          <Link to="/">Graphics & Design</Link>
-          <Link to="/">Video & Animation</Link>
-          <Link to="/">Writing & Translation</Link>
-          <Link to="/">AI Services</Link>
-          <Link to="/">Digital Marketing</Link>
-          <Link to="/">Music & Audio</Link>
-          <Link to="/">Programming & Tech</Link>
-          <Link to="/">Business</Link>
-          <Link to="/">Lifestyle</Link>
+          <Link to="/">{t("menu.graphicsDesign")}</Link>
+          <Link to="/">{t("menu.videoAnimation")}</Link>
+          <Link to="/">{t("menu.writingTranslation")}</Link>
+          <Link to="/">{t("menu.aiServices")}</Link>
+          <Link to="/">{t("menu.digitalMarketing")}</Link>
+          <Link to="/">{t("menu.musicAudio")}</Link>
+          <Link to="/">{t("menu.programmingTech")}</Link>
+          <Link to="/">{t("menu.business")}</Link>
+          <Link to="/">{t("menu.lifestyle")}</Link>
         </div>
       )}
       {/* Render ChatBot */}

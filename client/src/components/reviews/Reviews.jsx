@@ -3,9 +3,11 @@ import React from "react";
 import newRequest from "../../utils/newRequest";
 import Review from "../review/Review";
 import "./Reviews.css";
+import { useTranslation } from "react-i18next"; // Import translation hook
 
 const Reviews = ({ gigId }) => {
   const queryClient = useQueryClient();
+  const { t } = useTranslation(); // Hook for translation
 
   const { isLoading, error, data } = useQuery({
     queryKey: ["reviews", gigId],
@@ -29,36 +31,36 @@ const Reviews = ({ gigId }) => {
 
   return (
     <div className="reviews">
-      <h2 className="reviews-title">Reviews</h2>
+      <h2 className="reviews-title">{t("reviews.title")}</h2>
       {isLoading ? (
-        <p className="loading-text">Loading reviews...</p>
+        <p className="loading-text">{t("reviews.loadingText")}</p>
       ) : error ? (
-        <p className="error-text">Something went wrong! Please try again later.</p>
+        <p className="error-text">{t("reviews.errorMessage")}</p> 
       ) : (
         data.map((review) => <Review key={review._id} review={review} />)
       )}
       <hr className="divider" />
       <div className="add-review">
-        <h3 className="add-review-title">Add a Review</h3>
+        <h3 className="add-review-title">{t("reviews.addReviewTitle")}</h3>
         <form className="addForm" onSubmit={handleSubmit}>
-          <label htmlFor="description">Your Opinion:</label>
+          <label htmlFor="description">{t("reviews.yourOpinionLabel")}</label> 
           <input
             id="description"
             name="description"
             type="text"
-            placeholder="Write your opinion"
+            placeholder={t("reviews.opinionPlaceholder")}
             required
           />
-          <label htmlFor="rating">Rating:</label>
+          <label htmlFor="rating">{t("reviews.ratingLabel")}</label> {/* Use translation for rating label */}
           <select id="rating" name="rating" required>
-            <option value="" disabled>Select a rating</option>
+            <option value="" disabled>{t("reviews.selectRating")}</option> {/* Use translation for select rating */}
             {[1, 2, 3, 4, 5].map((value) => (
               <option key={value} value={value}>
                 {value}
               </option>
             ))}
           </select>
-          <button type="submit" className="submit-button">Send</button>
+          <button type="submit" className="submit-button">{t("reviews.sendButton")}</button> {/* Use translation for button text */}
         </form>
       </div>
     </div>
