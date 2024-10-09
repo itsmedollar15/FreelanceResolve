@@ -1,45 +1,50 @@
+import { useTranslation } from "react-i18next";
 import "./Footer.css";
 
 function Footer() {
+  const { t } = useTranslation(); // Use i18n hook for translations
+
   return (
     <div className="footer">
       <div className="container">
         <div className="top">
           <div className="item">
-            <h2>Categories</h2>
-            <span>Graphics & Design</span>
-            <span>Digital Marketing</span>
-            <span>Writing & Translation</span>
-            <span>Video & Animation</span>
-            <span>Music & Audio</span>
-            <span>Programming & Tech</span>
+            <h2>{t("footer.categories")}</h2>
+            <span>{t("footer.graphicsDesign")}</span>
+            <span>{t("footer.digitalMarketing")}</span>
+            <span>{t("footer.writingTranslation")}</span>
+            <span>{t("footer.videoAnimation")}</span>
+            <span>{t("footer.musicAudio")}</span>
+            <span>{t("footer.programmingTech")}</span>
           </div>
           <div className="item">
-            <h2>Support</h2>
-            <span>Help & Support</span>
-            <span>Trust & Safety</span>
-            <span>Selling on SSM</span>
-            <span>Buying on SSM</span>
+            <h2>{t("footer.support")}</h2>
+            <span>{t("footer.helpSupport")}</span>
+            <span>{t("footer.trustSafety")}</span>
+            <span>{t("footer.sellingOnSSM")}</span>
+            <span>{t("footer.buyingOnSSM")}</span>
           </div>
           <div className="item">
-            <h2>Community</h2>
-            <span>Customer Success Stories</span>
-            <span>Community Hub</span>
-            <span>Forum</span>
-            <span>Events</span>
+            <h2>{t("footer.community")}</h2>
+            <span>{t("footer.customerStories")}</span>
+            <span>{t("footer.communityHub")}</span>
+            <span>{t("footer.forum")}</span>
+            <span>{t("footer.events")}</span>
           </div>
           <div className="item">
-            <h2>More From FreelanceResolve</h2>
-            <span>FR Business</span>
-            <span>FR Pro</span>
-            <span>FR Logo Maker</span>
-            <span>FR Guides</span>
+            <h2>{t("footer.moreFromFreelanceResolve")}</h2>
+            <span>{t("footer.frBusiness")}</span>
+            <span>{t("footer.frPro")}</span>
+            <span>{t("footer.frLogoMaker")}</span>
+            <span>{t("footer.frGuides")}</span>
           </div>
         </div>
         <div className="bottom">
           <div className="left">
-            <h2>FreelanceResolve</h2>
-            <span>© {new Date().getFullYear()} FreelanceResolve International Ltd.</span>
+            <h2>{t("footer.freelanceResolve")}</h2>
+            <span>
+              © {new Date().getFullYear()} {t("footer.freelanceResolveCompany")}
+            </span>
           </div>
           <div className="right">
             <div className="social">
@@ -51,11 +56,11 @@ function Footer() {
             </div>
             <div className="link">
               <img src="/icons/language.png" alt="Language" />
-              <span>English</span>
+              <span>{t("footer.language")}</span>
             </div>
             <div className="link">
               <img src="/icons/rupee1.png" alt="Currency" />
-              <span>INR</span>
+              <span>{t("footer.currency")}</span>
             </div>
             <img src="/icons/accessibility.png" alt="Accessibility" />
           </div>

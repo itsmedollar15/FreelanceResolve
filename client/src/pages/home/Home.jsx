@@ -5,8 +5,11 @@ import CatCard from "../../components/catCard/CatCard";
 import ProjectCard from "../../components/projectCard/ProjectCard";
 import Featured from "../../components/featured/Featured";
 import TrustedBy from "../../components/trustedby/TrustedBy";
+import { useTranslation } from "react-i18next"; // Import translation hook
 
 const Home = () => {
+  const { t } = useTranslation(); // Translation hook
+
   return (
     <div className="home">
       <Featured />
@@ -19,38 +22,17 @@ const Home = () => {
       <div className="features">
         <div className="container">
           <div className="item">
-            <h1>A whole world of freelance talent at your fingertips</h1>
+            <h1>{t("home.title")}</h1>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              The best for every budget
+              {t("home.bestBudget")}
             </div>
-            <p>
-              Find high-quality services at every price point. No hourly rates,
-              just project-based pricing.
-            </p>
+            <p>{t("home.qualityWork")}</p>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Quality work done quickly
+              {t("home.protectedPayments")}
             </div>
-            <p>
-              Find the right freelancer to begin working on your project within
-              minutes.
-            </p>
-            <div className="title">
-              <img src="./img/check.png" alt="Checkmark" />
-              Protected payments, every time
-            </div>
-            <p>
-              Always know what you&apos;ll pay upfront. Your payment isn&apos;t released
-              until you approve the work.
-            </p>
-            <div className="title">
-              <img src="./img/check.png" alt="Checkmark" />
-              24/7 support
-            </div>
-            <p>
-              Get support any time of day, with round-the-clock assistance.
-            </p>
+            <p>{t("home.support")}</p>
           </div>
           <div className="item">
             <img src="./img/homepageimage.jpg" alt="Homepage visual" />
@@ -61,24 +43,25 @@ const Home = () => {
       <div className="features dark">
         <div className="container">
           <div className="item">
-            <h1>FreelanceResolve</h1>
-            <h2>Explore our services and join to unlock your project's potential.</h2>
+            <h1>FreelanceResolve</h1> {/* Brand name kept static */}
+            <h2>
+              {t("home.exploreServices")} {/* Add more translated keys here */}
+            </h2>
             <p>
-              Upgrade to a curated experience packed with tools and benefits, dedicated to freelancers and businesses.
+              {t("home.curatedExperience")}
             </p>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Connect with freelancers who have proven experience
+              {t("home.connectTalent")}
             </div>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Get matched with the perfect talent for your needs
+              {t("home.perfectMatch")}
             </div>
             <div className="title">
               <img src="./img/check.png" alt="Checkmark" />
-              Manage teamwork and boost productivity with one powerful workspace
+              {t("home.boostProductivity")}
             </div>
-            {/* <button className="business-explore-button">Explore Our Businesses</button> */}
           </div>
           <div className="item">
             <img className="clean-desk-image" src="./img/cleanDesk.jpg" alt="Clean desk" />

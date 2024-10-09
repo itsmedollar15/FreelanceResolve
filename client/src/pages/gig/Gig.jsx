@@ -1,5 +1,5 @@
 import "./Gig.css";
-import { Marquee } from "react-fast-marquee";
+import  Marquee  from "react-fast-marquee";
 import { Link, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import newRequest from "../../utils/newRequest.js";

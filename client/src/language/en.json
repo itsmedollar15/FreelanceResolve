@@ -1,0 +1,178 @@
+{
+    "navbar": {
+      "chatbot": "Chatbot",
+      "gigs": "Gigs",
+      "addNewGig": "Add New Gig",
+      "orders": "Orders",
+      "messages": "Messages",
+      "logout": "Logout",
+      "signIn": "Sign in",
+      "join": "Join"
+    },
+    "menu": {
+      "graphicsDesign": "Graphics & Design",
+      "videoAnimation": "Video & Animation",
+      "writingTranslation": "Writing & Translation",
+      "aiServices": "AI Services",
+      "digitalMarketing": "Digital Marketing",
+      "musicAudio": "Music & Audio",
+      "programmingTech": "Programming & Tech",
+      "business": "Business",
+      "lifestyle": "Lifestyle"
+    },
+    "featured": {
+      "findPerfect": "Find the perfect",
+      "freelance": "freelance",
+      "services": "services for your business",
+      "searchIconAlt": "Search icon",
+      "placeholder": "Try 'building mobile app'",
+      "searchButton": "Search",
+      "popular": "Popular",
+      "webDesign": "Web Design",
+      "wordPress": "WordPress",
+      "logoDesign": "Logo Design",
+      "aiServices": "AI Services",
+      "backgroundImageAlt": "Background with laptop"
+    },
+    "footer": {
+      "categories": "Categories",
+      "graphicsDesign": "Graphics & Design",
+      "digitalMarketing": "Digital Marketing",
+      "writingTranslation": "Writing & Translation",
+      "videoAnimation": "Video & Animation",
+      "musicAudio": "Music & Audio",
+      "programmingTech": "Programming & Tech",
+      "support": "Support",
+      "helpSupport": "Help & Support",
+      "trustSafety": "Trust & Safety",
+      "sellingOnSSM": "Selling on FR",
+      "buyingOnSSM": "Buying on FR",
+      "community": "Community",
+      "customerStories": "Customer Success Stories",
+      "communityHub": "Community Hub",
+      "forum": "Forum",
+      "events": "Events",
+      "moreFromFreelanceResolve": "More From FreelanceResolve",
+      "frBusiness": "FR Business",
+      "frPro": "FR Pro",
+      "frLogoMaker": "FR Logo Maker",
+      "frGuides": "FR Guides",
+      "freelanceResolve": "FreelanceResolve",
+      "freelanceResolveCompany": "FreelanceResolve International Ltd.",
+      "language": "English",
+      "currency": "INR"
+    },
+    "home": {
+      "title": "A whole world of freelance talent at your fingertips",
+      "bestBudget": "The best for every budget",
+      "qualityWork": "Quality work done quickly",
+      "protectedPayments": "Protected payments, every time",
+      "support": "24/7 support",
+      "freelanceResolve": "FreelanceResolve",
+      "exploreServices": "Explore our services",
+      "curatedExperience": "A curated experience just for you.",
+      "connectTalent": "Connect with top talent",
+      "perfectMatch": "Find your perfect match",
+      "boostProductivity": "Boost your productivity"
+    },
+    "trustedBy": {
+      "trustedBy": "Trusted by:",
+      "facebookLogoAlt": "Facebook logo",
+      "googleLogoAlt": "Google logo",
+      "netflixLogoAlt": "Netflix logo",
+      "paypalLogoAlt": "PayPal logo"
+    },
+    "login": {
+      "welcomeBack": "Welcome Back",
+      "username": "Username",
+      "usernamePlaceholder": "Enter your username",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "loginButton": "Login",
+      "errorMessage": "An error occurred. Please try again."
+    },
+    "register": {
+      "createAccount": "Create a New Account",
+      "username": "Username",
+      "usernamePlaceholder": "johndoe",
+      "email": "Email",
+      "emailPlaceholder": "you@example.com",
+      "password": "Password",
+      "profilePicture": "Profile Picture",
+      "country": "Country",
+      "countryPlaceholder": "USA",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 234 567 89",
+      "description": "Description",
+      "descriptionPlaceholder": "A short description of yourself",
+      "becomeSeller": "Become a Seller",
+      "activateSeller": "Activate Seller Account",
+      "register": "Register",
+      "registering": "Registering...",
+      "fillAllFields": "Please fill out all required fields.",
+      "invalidImage": "Please upload a valid image file (jpg, png).",
+      "registrationFailed": "Registration failed. Please try again."
+    },
+    "reviews": {
+      "title": "Reviews",
+      "addReviewTitle": "Add a Review",
+      "yourOpinionLabel": "Your Opinion:",
+      "opinionPlaceholder": "Write your opinion",
+      "ratingLabel": "Rating:",
+      "selectRating": "Select a rating",
+      "loadingText": "Loading reviews...",
+      "errorMessage": "Something went wrong! Please try again later.",
+      "sendButton": "Send"
+    },
+    "loading": {
+      "loadingText": "Loading..."
+    },
+    "error": {
+      "errorLoadingData": "Error loading user data"
+    },
+    "stars": {
+      "starAlt": "Star rating"
+    },
+    "helpful": {
+      "helpfulQuestion": "Helpful?",
+      "likeAlt": "Like",
+      "yes": "Yes",
+      "dislikeAlt": "Dislike",
+      "no": "No"
+    },
+    
+      "add": {
+        "addNewGig": "Add New Gig",
+        "title": "Title",
+        "titlePlaceholder": "e.g. I will do something I'm really good at",
+        "category": "Category",
+        "categoryDesign": "Design",
+        "categoryWeb": "Web Development",
+        "categoryAnimation": "Animation",
+        "categoryMusic": "Music",
+        "categoryPainting": "Painting",
+        "categoryDrawing": "Drawing",
+        "categorySoftwareDevelopment": "Software Development",
+        "categoryVideoEditing": "Video Editing",
+        "coverImage": "Cover Image",
+        "uploadImages": "Upload Images",
+        "description": "Description",
+        "descriptionPlaceholder": "Brief description to introduce your service to customers",
+        "shortTitle": "Service Title",
+        "shortTitlePlaceholder": "e.g. One-page web design",
+        "shortDesc": "Short Description",
+        "shortDescPlaceholder": "Short description of your service",
+        "deliveryTime": "Delivery Time (e.g. 3 days)",
+        "revisionNumber": "Revision Number",
+        "addFeatures": "Add Features",
+        "addFeaturesPlaceholder": "e.g. page design",
+        "add": "Add",
+        "uploading": "Uploading...",
+        "upload": "Upload",
+        "create": "Create",
+        "alertMessage": "Please fill in all required fields.",
+        "price": "Price"
+      }
+    
+    
+  }

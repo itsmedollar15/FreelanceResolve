@@ -1,10 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import upload from "../../utils/upload.js";
 import "./Register.css";
 import newRequest from "../../utils/newRequest.js";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next"; // Import translation hook
 
 function Register() {
+  const { t } = useTranslation(); // Hook for translation
   const [file, setFile] = useState(null);
   const [user, setUser] = useState({
     username: "",
@@ -18,7 +20,6 @@ function Register() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
   const navigate = useNavigate();
 
   const handleChange = (e) => {
@@ -39,12 +40,12 @@ function Register() {
     e.preventDefault();
 
     if (!user.username || !user.email || !user.password || !user.country) {
-      setError("Please fill out all required fields.");
+      setError(t("register.fillAllFields")); // Use translation for error message
       return;
     }
 
     if (file && !["image/jpeg", "image/png"].includes(file.type)) {
-      setError("Please upload a valid image file (jpg, png).");
+      setError(t("register.invalidImage")); // Use translation for error message
       return;
     }
 
@@ -57,7 +58,7 @@ function Register() {
       });
       navigate("/");
     } catch (err) {
-      setError("Registration failed. Please try again.");
+      setError(t("register.registrationFailed")); // Use translation for error message
       console.error(err);
     } finally {
       setLoading(false);
@@ -68,74 +69,79 @@ function Register() {
     <div className="register">
       <form onSubmit={handleSubmit}>
         <div className="left">
-          <h1>Create a New Account</h1>
-          <label htmlFor="username">Username</label>
+          <h1>{t("register.createAccount")}</h1> {/* Use translation for the title */}
+          
+          <label htmlFor="username">{t("register.username")}</label>
           <input
             name="username"
             type="text"
-            placeholder="johndoe"
+            placeholder={t("register.usernamePlaceholder")} // Use translation for placeholder
             onChange={handleChange}
+            required // Added required attribute for better validation
           />
 
-          <label htmlFor="email">Email</label>
+          <label htmlFor="email">{t("register.email")}</label>
           <input
             name="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder={t("register.emailPlaceholder")} // Use translation for placeholder
             onChange={handleChange}
+            required // Added required attribute for better validation
           />
 
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">{t("register.password")}</label>
           <input
             name="password"
             type="password"
             placeholder="••••••••"
             onChange={handleChange}
+            required // Added required attribute for better validation
           />
 
-          <label htmlFor="file">Profile Picture</label>
+          <label htmlFor="file">{t("register.profilePicture")}</label>
           <input
             type="file"
             accept="image/jpeg, image/png"
             onChange={(e) => setFile(e.target.files[0])}
           />
 
-          <label htmlFor="country">Country</label>
+          <label htmlFor="country">{t("register.country")}</label>
           <input
             name="country"
             type="text"
-            placeholder="USA"
+            placeholder={t("register.countryPlaceholder")} // Use translation for placeholder
             onChange={handleChange}
+            required // Added required attribute for better validation
           />
 
           {error && <p className="error">{error}</p>}
           <button type="submit" disabled={loading}>
-            {loading ? "Registering..." : "Register"}
+            {loading ? t("register.registering") : t("register.register")} {/* Use translation for button text */}
           </button>
         </div>
 
         <div className="right">
-          <h1>Become a Seller</h1>
+          <h1>{t("register.becomeSeller")}</h1> {/* Use translation for the title */}
           <div className="toggle">
-            <label htmlFor="isSeller">Activate Seller Account</label>
+            <label htmlFor="isSeller">{t("register.activateSeller")}</label>
             <label className="switch">
               <input type="checkbox" onChange={handleSeller} />
               <span className="slider round"></span>
             </label>
           </div>
 
-          <label htmlFor="phone">Phone Number</label>
+          <label htmlFor="phone">{t("register.phone")}</label>
           <input
             name="phone"
             type="text"
-            placeholder="+1 234 567 89"
+            placeholder={t("register.phonePlaceholder")} // Use translation for placeholder
             onChange={handleChange}
           />
 
-          <label htmlFor="desc">Description</label>
+          <label htmlFor="desc">{t("register.description")}</label>
           <textarea
             name="desc"
-            placeholder="A short description of yourself"
+            placeholder={t("register.descriptionPlaceholder")} // Use translation for placeholder
             cols="30"
             rows="5"
             onChange={handleChange}
