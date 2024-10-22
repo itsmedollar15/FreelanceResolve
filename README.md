@@ -1,6 +1,6 @@
-# FreelanceRevise
+# FreelanceResolve
 
-FreelanceRevise is a freelance service provider platform, similar to Fiverr, where users can offer and find freelance services in various categories.
+FreelanceResolve is a freelance service provider platform, similar to Fiverr, where users can offer and find freelance services in various categories.
 
 ## Features
 
@@ -32,8 +32,8 @@ Make sure you have the following installed:
 1. Clone the repository:
 
   ```bash
-  git clone https://github.com/yourusername/FreelanceRevise.git
-  cd FreelanceRevise
+  git clone https://github.com/yourusername/FreelanceResolve.git
+  cd FreelanceResolve
   ```
 
 2. Set up the API:
